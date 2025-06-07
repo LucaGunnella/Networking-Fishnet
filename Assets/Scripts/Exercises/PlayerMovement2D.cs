@@ -9,14 +9,20 @@ public class PlayerMovement2D : NetworkBehaviour
     
     private Animator _animator;
 
+    public bool CanMove;
+
     private void Awake()
     {
         _animator  = GetComponentInChildren<Animator>();
+        CanMove = true;
     }
 
     private void Update()
     {
-        Move();
+        if(CanMove)
+        {
+            Move();
+        }
     }
 
     // Using Client attribute to force execution only for the owner of this NetworkObject.

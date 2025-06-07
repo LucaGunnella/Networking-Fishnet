@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 114803848804651212}
   - component: {fileID: 8999190593164895769}
   - component: {fileID: 1731078292786239624}
+  - component: {fileID: 4950928128659003931}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -185,6 +186,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &4950928128659003931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404327456893880208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9214cab6ccf12498bbffe3871d53d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5784566083246519676
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +210,7 @@ GameObject:
   - component: {fileID: 8278997412743837437}
   - component: {fileID: 6229700513813524563}
   - component: {fileID: 9017755855569545335}
+  - component: {fileID: -299800109544042225}
   m_Layer: 0
   m_Name: Fighting Player
   m_TagString: Untagged
@@ -333,3 +347,19 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6229700513813524563}
   _networkObjectCache: {fileID: 6229700513813524563}
   _moveSpeed: 5
+  CanMove: 0
+--- !u!114 &-299800109544042225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784566083246519676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271f221535f6f214abf6250504af2615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 6229700513813524563}
+  _networkObjectCache: {fileID: 0}
