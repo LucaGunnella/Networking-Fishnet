@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8920610841558242851}
   - component: {fileID: 4957612045761392379}
   - component: {fileID: 6426026504532424357}
+  - component: {fileID: 237662551966579181}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -202,6 +203,7 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: 8920610841558242851}
+  - {fileID: 6426026504532424357}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -247,7 +249,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec660d6659be4494bb0bf7c60715a691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 1
+  _addedNetworkObject: {fileID: 4957612045761392379}
+  _networkObjectCache: {fileID: 4957612045761392379}
+  _secondsBeforeDespawn: 3
+--- !u!114 &237662551966579181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018372429788427199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f7129244b4aef47a597517fe9b1783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 4957612045761392379}
   _networkObjectCache: {fileID: 0}
-  _secondsBeforeDespawn: 3

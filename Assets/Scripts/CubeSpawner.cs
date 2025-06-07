@@ -18,6 +18,12 @@ public class CubeSpawner : NetworkBehaviour
     private void SpawnCube()
     {
         NetworkObject obj = Instantiate(_cubePrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.identity);
+        
+        if(obj.TryGetComponent<SyncMaterialColor>(out var syncMaterialColor)) // lesson 02
+        {
+            syncMaterialColor.color.Value = Random.ColorHSV();
+        }
+        
         Spawn(obj); // NetworkBehaviour shortcut for ServerManager.Spawn(obj);
     }
 }
