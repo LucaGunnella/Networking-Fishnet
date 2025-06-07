@@ -10,10 +10,13 @@ public class PlayerAttack : NetworkBehaviour
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        CanAttack = true;
     }
 
     private void Update()
     {
+        if(!CanAttack) return;
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Attack();

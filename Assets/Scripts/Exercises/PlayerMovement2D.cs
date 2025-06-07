@@ -20,10 +20,9 @@ public class PlayerMovement2D : NetworkBehaviour
 
     private void Update()
     {
-        if (CanMove)
-        {
-            Move();
-        }
+        if (!CanMove) return;
+        
+        Move();
     }
 
     // Using Client attribute to force execution only for the owner of this NetworkObject.
