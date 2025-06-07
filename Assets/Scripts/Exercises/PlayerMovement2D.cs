@@ -6,20 +6,21 @@ using UnityEngine;
 public class PlayerMovement2D : NetworkBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
-    
+
+    // Synchronize animator
     private Animator _animator;
 
-    public bool CanMove;
+    [NonSerialized] public bool CanMove;
 
     private void Awake()
     {
-        _animator  = GetComponentInChildren<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         CanMove = true;
     }
 
     private void Update()
     {
-        if(CanMove)
+        if (CanMove)
         {
             Move();
         }
@@ -36,8 +37,8 @@ public class PlayerMovement2D : NetworkBehaviour
         var moveDirection = new Vector3(horizontal, 0f, 0f);
         if (moveDirection.magnitude > 1f)
             moveDirection.Normalize();
-
-        transform.position += _moveSpeed * Time.deltaTime * moveDirection;
+        
+        transform.position += _moveSpeed * Time.deltaTime * moveDirection;;
 
         _animator.SetBool("IsWalking", horizontal != 0f);
     }
