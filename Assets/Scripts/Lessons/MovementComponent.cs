@@ -21,9 +21,11 @@ public class MovementComponent : NetworkBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        var moveDirection = new Vector3(horizontal, 0f, vertical);
-        if (moveDirection.magnitude > 1f)
-            moveDirection.Normalize();
+        var inputDirection = new Vector3(horizontal, 0f, vertical);
+        if (inputDirection.magnitude > 1f)
+            inputDirection.Normalize();
+
+        Vector3 moveDirection = transform.TransformDirection(inputDirection);
 
         transform.position += _moveSpeed * Time.deltaTime * moveDirection;
     }
