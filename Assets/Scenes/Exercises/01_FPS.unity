@@ -202,15 +202,15 @@ PrefabInstance:
     - target: {fileID: 7443408887813606060, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
       propertyPath: 'Spawns.Array.data[2]'
       value: 
-      objectReference: {fileID: 1362771076}
+      objectReference: {fileID: 442722093}
     - target: {fileID: 7443408887813606060, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
       propertyPath: 'Spawns.Array.data[3]'
       value: 
-      objectReference: {fileID: 1362771076}
+      objectReference: {fileID: 1121367783}
     - target: {fileID: 7443408887813606060, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
       propertyPath: 'Spawns.Array.data[4]'
       value: 
-      objectReference: {fileID: 1362771076}
+      objectReference: {fileID: 1890013632}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
