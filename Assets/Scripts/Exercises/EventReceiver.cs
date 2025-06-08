@@ -3,34 +3,34 @@ using UnityEngine;
 
 public class EventReceiver : MonoBehaviour
 {
-    private PlayerMovement2D _playerMovement;
-    private PlayerAttack _playerAttack;
+    private Movement2DComponent _movement;
+    private AttackComponent _attackComponent;
     
     private void Awake()
     {
-        _playerMovement = GetComponentInParent<PlayerMovement2D>();
-        _playerAttack = GetComponentInParent<PlayerAttack>();
+        _movement = GetComponentInParent<Movement2DComponent>();
+        _attackComponent = GetComponentInParent<AttackComponent>();
     }
 
     public void OnStartAttacking()
     {
-        _playerMovement.CanMove = false;
+        _movement.CanMove = false;
     }
 
     public void OnStopAttacking()
     {
-        _playerMovement.CanMove = true;
+        _movement.CanMove = true;
     }
 
     public void OnStartKnockback()
     {
-        _playerMovement.CanMove = false;
-        _playerAttack.CanAttack = false;
+        _movement.CanMove = false;
+        _attackComponent.CanAttack = false;
     }
 
     public void OnStopKnockback()
     {
-        _playerMovement.CanMove = true;
-        _playerAttack.CanAttack = true;
+        _movement.CanMove = true;
+        _attackComponent.CanAttack = true;
     }
 }

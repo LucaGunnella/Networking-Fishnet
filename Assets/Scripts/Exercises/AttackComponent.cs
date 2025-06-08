@@ -2,7 +2,7 @@ using FishNet.Object;
 using System;
 using UnityEngine;
 
-public class PlayerAttack : NetworkBehaviour
+public class AttackComponent : NetworkBehaviour
 {
     private Animator _animator;
     [NonSerialized] public bool CanAttack;

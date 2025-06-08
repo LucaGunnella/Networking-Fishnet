@@ -2,7 +2,7 @@ using FishNet.Object;
 using System;
 using UnityEngine;
 
-public class PlayerHealth : NetworkBehaviour
+public class HealthComponent : NetworkBehaviour
 {
      // Add a synchronized variable for health and bind it to UI
      

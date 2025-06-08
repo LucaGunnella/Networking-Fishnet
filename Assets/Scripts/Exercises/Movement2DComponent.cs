@@ -1,14 +1,27 @@
 using FishNet.Managing.Logging;
-using UnityEngine;
 using FishNet.Object;
+using System;
+using UnityEngine;
 
-// NetworkBehaviour gives access to all network functionalities and forces gameObject to be NetworkObject.
-public class PlayerMovement : NetworkBehaviour
+public class Movement2DComponent : NetworkBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
 
+    // Synchronize animator
+    private Animator _animator;
+
+    [NonSerialized] public bool CanMove;
+
+    private void Awake()
+    {
+        _animator = GetComponentInChildren<Animator>();
+        CanMove = true;
+    }
+
     private void Update()
     {
+        if (!CanMove) return;
+        
         Move();
     }
 
@@ -19,13 +32,13 @@ public class PlayerMovement : NetworkBehaviour
     private void Move()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
-        var moveDirection = new Vector3(horizontal, 0f, vertical);
+        var moveDirection = new Vector3(horizontal, 0f, 0f);
         if (moveDirection.magnitude > 1f)
             moveDirection.Normalize();
+        
+        transform.position += _moveSpeed * Time.deltaTime * moveDirection;;
 
-        transform.position += _moveSpeed * Time.deltaTime * moveDirection;
+        _animator.SetBool("IsWalking", horizontal != 0f);
     }
-
 }
