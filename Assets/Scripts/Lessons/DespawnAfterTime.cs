@@ -6,6 +6,7 @@ public class DespawnAfterTime : NetworkBehaviour
 {
      [SerializeField] private float _secondsBeforeDespawn = 3f;
 
+     // Called when this NetworkObject is initiated on the server
      public override void OnStartServer()
      {
           StartCoroutine(DespawnAfterSeconds());

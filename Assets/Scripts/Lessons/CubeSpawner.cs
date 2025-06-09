@@ -14,7 +14,7 @@ public class CubeSpawner : NetworkBehaviour
 
     // We are using a ServerRpc here because the Server needs to do all network object spawning.
     // RPC = Remote Procedure Calls. ServerRpc runs logic on the server.
-    [ServerRpc, Client(Logging = LoggingType.Off, RequireOwnership = true)]
+    [ServerRpc(Logging = LoggingType.Off, RequireOwnership = true)]
     private void SpawnCube()
     {
         NetworkObject obj = Instantiate(_cubePrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.identity);
@@ -24,6 +24,6 @@ public class CubeSpawner : NetworkBehaviour
             syncMaterialColor.color.Value = Random.ColorHSV();
         }
         
-        Spawn(obj); // NetworkBehaviour shortcut for ServerManager.Spawn(obj);
+        Spawn(obj, Owner); // NetworkBehaviour shortcut for ServerManager.Spawn(obj);
     }
 }
