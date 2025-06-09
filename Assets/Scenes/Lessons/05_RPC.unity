@@ -325,7 +325,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Remote Procedure Calls are what allow us to run logic through the network.
     \n[ServerRpc] runs logic on the Server.\n[ObserversRpc] runs logic on observing
-    clients.\n[TargetRpc] runs logic on the target NetworkConnection (Client)."
+    clients.\n[TargetRpc] runs logic on the target NetworkConnection (Client) but
+    only from the Server (or Host)."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -352,7 +353,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.8
+  m_fontSize: 33.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -404,11 +405,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81583949}
   m_CullTransparentMesh: 1
+--- !u!1 &158708643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6554584128848530226, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+  m_PrefabInstance: {fileID: 433098466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &168748720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6287188847273038961, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
   m_PrefabInstance: {fileID: 433098466}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &168748723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8796980946804667810, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+  m_PrefabInstance: {fileID: 433098466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158708643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &168748727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158708643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae7667cf27e4f73bd0f66d778707f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 168748723}
+  _networkObjectCache: {fileID: 0}
 --- !u!4 &329436048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6287188847273038961, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
@@ -772,7 +804,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6554584128848530226, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 168748727}
   m_SourcePrefab: {fileID: 100100000, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
 --- !u!1 &523829870
 GameObject:
@@ -1092,6 +1127,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924684765}
   m_CullTransparentMesh: 1
+--- !u!1 &1023344248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6554584128848530226, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+  m_PrefabInstance: {fileID: 3322671234609502626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1023344251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8796980946804667810, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+  m_PrefabInstance: {fileID: 3322671234609502626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023344248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1023344255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023344248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae7667cf27e4f73bd0f66d778707f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1023344251}
+  _networkObjectCache: {fileID: 0}
 --- !u!1 &1042993683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,10 +1453,17 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 3753344991
       objectReference: {fileID: 0}
+    - target: {fileID: 8796980946804667810, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+      propertyPath: 'NetworkBehaviours.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6554584128848530226, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1023344255}
   m_SourcePrefab: {fileID: 100100000, guid: ca7f18bfeb8efcc41a762885a2f5545c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
