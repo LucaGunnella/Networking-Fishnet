@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Lessons/04_Observers.unity
     guid: 0eea66a41b053e14d83a08cc8ad67f6c
   - enabled: 0
-    path: Assets/Scenes/Lessons/05_RPC.unity
-    guid: 2371a3735e0f8ea4eae0766bd6161a4f
+    path: Assets/Scenes/Lessons/05_Rpc.unity
+    guid: bf6a40f85fbaf2847b342fcf19c6aa14
   - enabled: 0
     path: Assets/Scenes/Exercises/00_FightingGame.unity
     guid: f0c72fd7c6194ea46ac30fc884e79750
