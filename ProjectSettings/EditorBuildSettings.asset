@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lessons/00_Basic Components.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Lessons/04_Observers.unity
     guid: 0eea66a41b053e14d83a08cc8ad67f6c
   - enabled: 0
-    path: Assets/Scenes/Lessons/05_Rpc.unity
+    path: Assets/Scenes/Lessons/05_RPC.unity
     guid: bf6a40f85fbaf2847b342fcf19c6aa14
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Exercises/00_FightingGame.unity
     guid: f0c72fd7c6194ea46ac30fc884e79750
   - enabled: 0

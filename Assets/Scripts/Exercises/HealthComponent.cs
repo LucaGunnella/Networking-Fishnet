@@ -1,23 +1,48 @@
+using FishNet.Component.Animating;
 using FishNet.Object;
-using System;
+using FishNet.Object.Synchronizing;
 using UnityEngine;
 
 public class HealthComponent : NetworkBehaviour
 {
-     // Add a synchronized variable for health and bind it to UI
-     
-     // Synchronize animator
-     private Animator _animator;
+    [SerializeField] private int _maxHealth = 100;
 
-     private void Awake()
-     {
-          GetComponentInChildren<Animator>();
-     }
-     
-     // Add your code
+    public readonly SyncVar<int> Health = new();
+    // Synchronize animator
+    private NetworkAnimator _networkAnimator;
 
-     private void ReceiveHit()
-     {
-          _animator.SetTrigger("HasBeenHit");
-     }
+    #region Unity Callbacks
+    private void Awake()
+    {
+        Health.Value = _maxHealth;
+
+        _networkAnimator = GetComponentInChildren<NetworkAnimator>();
+        Health.OnChange += OnHealthChanged;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TakeDamage(10);
+        }
+    }
+    #endregion
+    
+    [ServerRpc]
+    public void TakeDamage(int amount)
+    {
+        Health.Value -= amount;
+    }
+
+    private void ReceiveHit()
+    {
+        _networkAnimator.SetTrigger("HasBeenHit");
+    }
+
+    private void OnHealthChanged(int prev, int next, bool asServer)
+    {
+        Health.Value = next;
+        ReceiveHit();
+    }
 }

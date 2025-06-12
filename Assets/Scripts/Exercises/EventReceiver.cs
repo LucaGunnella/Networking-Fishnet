@@ -5,7 +5,7 @@ public class EventReceiver : MonoBehaviour
 {
     private Movement2DComponent _movement;
     private AttackComponent _attackComponent;
-    
+
     private void Awake()
     {
         _movement = GetComponentInParent<Movement2DComponent>();
@@ -15,11 +15,23 @@ public class EventReceiver : MonoBehaviour
     public void OnStartAttacking()
     {
         _movement.CanMove = false;
+        _attackComponent.CanAttack = false;
+    }
+
+    public void OnStartHurtBox()
+    {
+        _attackComponent.EnableHurtBox(true);
     }
 
     public void OnStopAttacking()
     {
         _movement.CanMove = true;
+        _attackComponent.CanAttack = true;
+    }
+
+    public void OnStopHurtBox()
+    {
+        _attackComponent.EnableHurtBox(false);
     }
 
     public void OnStartKnockback()

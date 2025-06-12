@@ -1,3 +1,4 @@
+using FishNet.Component.Animating;
 using FishNet.Managing.Logging;
 using FishNet.Object;
 using System;
@@ -8,13 +9,13 @@ public class Movement2DComponent : NetworkBehaviour
     [SerializeField] private float _moveSpeed = 5f;
 
     // Synchronize animator
-    private Animator _animator;
+    private NetworkAnimator _networkAnimator;
 
     [NonSerialized] public bool CanMove;
 
     private void Awake()
     {
-        _animator = GetComponentInChildren<Animator>();
+        _networkAnimator = GetComponentInChildren<NetworkAnimator>();
         CanMove = true;
     }
 
@@ -26,7 +27,7 @@ public class Movement2DComponent : NetworkBehaviour
     }
 
     // Using Client attribute to force execution only for the owner of this NetworkObject.
-    // LoggingType = if and what message should be broadcast in console upon not meeting requirements.
+    // LoggingType = if and what message should be broadcast in the console upon not meeting requirements.
     // RequireOwnership = if ownership is required to execute this method.
     [Client(Logging = LoggingType.Off, RequireOwnership = true)]
     private void Move()
@@ -39,6 +40,6 @@ public class Movement2DComponent : NetworkBehaviour
         
         transform.position += _moveSpeed * Time.deltaTime * moveDirection;;
 
-        _animator.SetBool("IsWalking", horizontal != 0f);
+        _networkAnimator.Animator.SetBool("IsWalking", horizontal != 0f);
     }
 }
