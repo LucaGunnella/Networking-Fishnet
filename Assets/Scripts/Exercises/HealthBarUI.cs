@@ -24,11 +24,12 @@ public class HealthBarUI : NetworkBehaviour
         _slider.value = _fillAmount.Value;
     }
 
-    private void UpdateHealthBar(int prev, int next, bool asServer)
+    private void UpdateFillAmount(int prev, int next, bool asServer)
     {
         _fillAmount.Value = (float)next / 100;
     }
 
+    #region Subscribe To HealthComponent
     public void SubscribeHealthBar(NetworkConnection conn)
     {
         StartCoroutine(WaitForSpawn(conn));
@@ -36,12 +37,13 @@ public class HealthBarUI : NetworkBehaviour
     
     private IEnumerator WaitForSpawn(NetworkConnection conn)
     {
-        while (!conn.FirstObject)
+        while (!conn.FirstObject) //usually the player, very basic implementation
         {
             yield return null;
         }
         
         GiveOwnership(conn);
-        conn.FirstObject.GetComponent<HealthComponent>().Health.OnChange += UpdateHealthBar;
+        conn.FirstObject.GetComponent<HealthComponent>().Health.OnChange += UpdateFillAmount;
     }
+    #endregion
 }
