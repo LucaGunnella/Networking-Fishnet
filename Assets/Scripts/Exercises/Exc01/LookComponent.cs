@@ -31,10 +31,15 @@ public class LookComponent : NetworkBehaviour
         _root = transform.root;
     }
 
-    void Start()
+    public override void OnStartClient()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        base.OnStartClient();
+        
+        if(IsOwner)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     
     private void Update()
@@ -60,5 +65,11 @@ public class LookComponent : NetworkBehaviour
     {
         Camera = Instantiate(_cameraPrefab, _cameraSocket).GetComponent<Camera>();
     }
-    
+
+    public override void OnStopClient()
+    {
+        base.OnStopClient();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

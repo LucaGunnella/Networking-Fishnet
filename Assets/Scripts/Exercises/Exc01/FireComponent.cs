@@ -6,10 +6,13 @@ using UnityEngine;
 public class FireComponent : NetworkBehaviour
 {
     private LookComponent _lookComponent;
-    
-    private void Awake()
+
+    public override void OnStartClient()
     {
+        base.OnStartClient();
         _lookComponent = GetComponentInParent<LookComponent>();
+        
+        GiveOwnership(_lookComponent.Owner);
     }
 
     private void Update()
@@ -29,6 +32,11 @@ public class FireComponent : NetworkBehaviour
         if (Physics.Raycast(ray, out var hit))
         {
             Debug.Log(hit.transform.name);
+            
+            if (hit.transform.TryGetComponent(out HealthComponent health))
+            {
+                health.TakeDamage(5);
+            }
         }
     }
 }

@@ -45,4 +45,9 @@ public class EventReceiver : MonoBehaviour
         _movement.CanMove = true;
         _attackComponent.CanAttack = true;
     }
+
+    public void OnHudFaded()
+    {
+        gameObject.SetActive(false);
+    }
 }

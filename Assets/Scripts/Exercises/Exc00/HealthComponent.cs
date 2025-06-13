@@ -29,7 +29,7 @@ public class HealthComponent : NetworkBehaviour
     }
     #endregion
     
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void TakeDamage(int amount)
     {
         Health.Value -= amount;
@@ -37,6 +37,8 @@ public class HealthComponent : NetworkBehaviour
 
     private void ReceiveHit()
     {
+        if(!_networkAnimator) return;
+        
         _networkAnimator.SetTrigger("HasBeenHit");
     }
 
