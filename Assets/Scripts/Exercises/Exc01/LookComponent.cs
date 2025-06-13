@@ -2,21 +2,27 @@ using System;
 using FishNet.Connection;
 using FishNet.Managing.Logging;
 using FishNet.Object;
+using NUnit.Framework;
 using UnityEngine;
 
 public class LookComponent : NetworkBehaviour
 {
+    [SerializeField] private Canvas _hudCanvas;
     [SerializeField] private Transform _cameraSocket;
     [SerializeField] private GameObject _cameraPrefab;
     [SerializeField] private float mouseSensitivity = 100f;
 
-    private Camera _camera;
+    public Camera Camera { get; private set; }
     private Transform _root;
     private float _xRotation;
 
     public override void OnOwnershipClient(NetworkConnection prevOwner)
     {
         base.OnOwnershipClient(prevOwner);
+        if (!IsOwner)
+        {
+            _hudCanvas.enabled = false;
+        }
         CreateCamera();
     }
 
@@ -45,14 +51,14 @@ public class LookComponent : NetworkBehaviour
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
-        _camera.transform.parent.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+        Camera.transform.parent.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         _root.Rotate(Vector3.up * mouseX);
     }
 
     [Client(Logging = LoggingType.Off, RequireOwnership = true)]
     private void CreateCamera()
     {
-        _camera = Instantiate(_cameraPrefab, _cameraSocket).GetComponent<Camera>();
+        Camera = Instantiate(_cameraPrefab, _cameraSocket).GetComponent<Camera>();
     }
     
 }
