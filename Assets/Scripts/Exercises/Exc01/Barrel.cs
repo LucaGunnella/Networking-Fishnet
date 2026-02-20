@@ -4,5 +4,4 @@ using FishNet.Object;
 public class Barrel : NetworkBehaviour
 {
      // Add your code
-     //init
 }
