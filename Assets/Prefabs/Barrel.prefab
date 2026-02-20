@@ -179,3 +179,5 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 5377744101051434408}
   _networkObjectCache: {fileID: 0}
+  _maxHealth: 1
+  _explosionRadius: 5
