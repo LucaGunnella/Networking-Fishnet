@@ -3,7 +3,7 @@ using FishNet.Object;
 using FishNet.Object.Synchronizing;
 using UnityEngine;
 
-public class AHealthComponent : NetworkBehaviour
+public abstract class AHealthComponent : NetworkBehaviour
 {
     [SerializeField] private int _maxHealth = 100;
     
@@ -21,9 +21,6 @@ public class AHealthComponent : NetworkBehaviour
     {
         Health.Value -= amount;
     }
-    
-    protected virtual void OnHealthChanged(int prev, int next, bool asServer)
-    {
-        Health.Value = next;
-    }
+
+    protected abstract void OnHealthChanged(int prev, int next, bool asServer);
 }
