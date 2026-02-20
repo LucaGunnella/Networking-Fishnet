@@ -13,6 +13,24 @@ using UnityEngine.UI;
         _fillAmount.Value = _slider.value;
         _fillAmount.OnChange += OnHealthChanged;
     }
+
+    public override void OnStartClient()
+    {
+        ActivateHealthBar();
+    }
+
+    //[ServerRpc(RequireOwnership = true)]
+    private void ActivateHealthBar()
+    {
+        if (IsOwner)
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+        }
+    }
     
     private void OnHealthChanged(float prev, float next, bool asServer)
     {
