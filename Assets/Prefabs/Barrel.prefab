@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 5377744101051434408}
   - component: {fileID: -9068097505852196801}
   - component: {fileID: 3612467453952608319}
+  - component: {fileID: 3341628633602755594}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -340,3 +341,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3341628633602755594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8769738432758401149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FishNet.Runtime::FishNet.Component.Animating.NetworkAnimator
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 5377744101051434408}
+  _networkObjectCache: {fileID: 0}
+  IgnoredParameters: []
+  _animator: {fileID: 3612467453952608319}
+  _synchronizeWhenDisabled: 0
+  _smoothFloats: 1
+  _interpolation: 2
+  _clientAuthoritative: 1
+  _sendToOwner: 0
