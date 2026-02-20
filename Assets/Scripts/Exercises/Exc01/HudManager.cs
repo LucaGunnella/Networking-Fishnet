@@ -8,7 +8,7 @@ public class HudManager : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentInParent<HealthComponent>().Health.OnChange += EnableHurtScreen;
+        GetComponentInParent<HealthComponent3D>().Health.OnChange += EnableHurtScreen;
     }
 
     private void EnableHurtScreen(int prev, int next, bool asServer)

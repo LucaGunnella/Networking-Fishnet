@@ -33,7 +33,7 @@ public class FireComponent : NetworkBehaviour
         {
             Debug.Log(hit.transform.name);
             
-            if (hit.transform.TryGetComponent(out HealthComponent health))
+            if (hit.transform.TryGetComponent(out HealthComponent3D health))
             {
                 health.TakeDamage(5);
             }
