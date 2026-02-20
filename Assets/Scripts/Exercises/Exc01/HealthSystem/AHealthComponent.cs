@@ -8,8 +8,7 @@ public class AHealthComponent : NetworkBehaviour
     [SerializeField] private int _maxHealth = 100;
     
     public readonly SyncVar<int> Health = new();
-
-    [ServerRpc(RequireOwnership = false)]
+    
     private void Awake()
     {
         Health.Value = _maxHealth;
@@ -17,6 +16,7 @@ public class AHealthComponent : NetworkBehaviour
         Health.OnChange += OnHealthChanged;
     }
 
+    [ServerRpc(RequireOwnership = false)]
     public void TakeDamage(int amount)
     {
         Health.Value -= amount;
