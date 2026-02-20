@@ -1,7 +1,12 @@
+using System;
 using UnityEngine;
 using FishNet.Object;
 
 public class Barrel : NetworkBehaviour
 {
-     // Add your code
+     public void OnHit()
+     {
+          Debug.Log("Sono stato colpito");
+          Destroy(gameObject);
+     }
 }

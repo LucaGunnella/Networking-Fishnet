@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireComponent : NetworkBehaviour
 {
     private LookComponent _lookComponent;
+    private Barrel _barrel;
 
     public override void OnStartClient()
     {
@@ -32,6 +33,8 @@ public class FireComponent : NetworkBehaviour
         if (Physics.Raycast(ray, out var hit))
         {
             Debug.Log(hit.transform.name);
+            _barrel = hit.transform.GetComponent<Barrel>();
+            _barrel.OnHit();
             
             if (hit.transform.TryGetComponent(out HealthComponent health))
             {
