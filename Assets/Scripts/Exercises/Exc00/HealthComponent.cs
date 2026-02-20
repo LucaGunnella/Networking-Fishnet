@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthComponent : NetworkBehaviour
 {
     [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private HealthBarFPSUI _healthBarFPSUI;
 
     public readonly SyncVar<int> Health = new();
     // Synchronize animator
@@ -16,6 +17,7 @@ public class HealthComponent : NetworkBehaviour
     {
         Health.Value = _maxHealth;
 
+        _healthBarFPSUI = GetComponentInChildren<HealthBarFPSUI>();
         _networkAnimator = GetComponentInChildren<NetworkAnimator>();
         Health.OnChange += OnHealthChanged;
     }
@@ -44,7 +46,7 @@ public class HealthComponent : NetworkBehaviour
 
     private void OnHealthChanged(int prev, int next, bool asServer)
     {
-        Health.Value = next;
+        _healthBarFPSUI.UpdateFillAmount(next);
         ReceiveHit();
     }
 }
