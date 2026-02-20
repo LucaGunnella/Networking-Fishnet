@@ -1,11 +1,22 @@
+using System;
 using FishNet.Component.Animating;
 using FishNet.Object;
 using FishNet.Object.Synchronizing;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthComponent : NetworkBehaviour
 {
     [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private Slider _slider;
+    public float HealthPercentage
+    {
+        get
+        {
+            float percentage = ((float) Health.Value)/_maxHealth;
+            return Mathf.Max(Mathf.Min(percentage, 1), 0);
+        }
+    }
 
     public readonly SyncVar<int> Health = new();
     // Synchronize animator
@@ -45,6 +56,7 @@ public class HealthComponent : NetworkBehaviour
     private void OnHealthChanged(int prev, int next, bool asServer)
     {
         Health.Value = next;
+        _slider.value = HealthPercentage;
         ReceiveHit();
     }
 }

@@ -840,6 +840,7 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 6229700513813524563}
   _networkObjectCache: {fileID: 6229700513813524563}
   _maxHealth: 100
+  _slider: {fileID: 4482476784991076706}
 --- !u!114 &3531421719954590435
 MonoBehaviour:
   m_ObjectHideFlags: 0
