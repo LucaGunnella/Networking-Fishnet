@@ -5,17 +5,17 @@ public class Barrel : NetworkBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(RequireOwnership = false, RunLocally = true)]
     public void Explode()
     {
         if(_animator != null)
             _animator.SetTrigger("Explode");
     }
 
-    // [ServerRpc(RequireOwnership = true)]
+    // [ServerRpc(RequireOwnership = false)]
     public void DeInit()
     {
-        Despawn();
+        Despawn(DespawnType.Destroy);
     }
     
 }

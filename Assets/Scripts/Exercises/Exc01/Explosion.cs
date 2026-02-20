@@ -6,9 +6,10 @@ public class Explosion : NetworkBehaviour
 {
     [SerializeField] private int _damage;
 
-    void OnCollisionEnter(Collision collision)
+    // [ServerRpc(RequireOwnership = false)]
+    void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.TryGetComponent<HealthComponent>(out var healthComponent))
+        if(other.gameObject.TryGetComponent<HealthComponent>(out var healthComponent))
         {
             healthComponent.TakeDamage(_damage);
         }

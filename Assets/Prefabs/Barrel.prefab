@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e96521f2323a074db8d87a68c08de5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Explosion
-  _componentIndexCache: 1
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 5377744101051434408}
   _networkObjectCache: {fileID: 5377744101051434408}
   _damage: 30
@@ -123,7 +123,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -268,6 +268,7 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: -9068097505852196801}
+  - {fileID: 3341628633602755594}
   - {fileID: 2410670124146617362}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -317,7 +318,6 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 5377744101051434408}
   _networkObjectCache: {fileID: 5377744101051434408}
-  _cubePrefab: {fileID: 4957612045761392379, guid: ecc254ebdac755d43a64700101be2c86, type: 3}
   _animator: {fileID: 3612467453952608319}
 --- !u!95 &3612467453952608319
 Animator:
@@ -353,9 +353,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: FishNet.Runtime::FishNet.Component.Animating.NetworkAnimator
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 5377744101051434408}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 5377744101051434408}
   IgnoredParameters: []
   _animator: {fileID: 3612467453952608319}
   _synchronizeWhenDisabled: 0
