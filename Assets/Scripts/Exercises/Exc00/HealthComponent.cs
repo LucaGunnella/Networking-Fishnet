@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthComponent : NetworkBehaviour
 {
     [SerializeField] private int _maxHealth = 100;
+    // [SerializeField] private Slider slider;
 
     public readonly SyncVar<int> Health = new();
     // Synchronize animator
