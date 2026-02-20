@@ -16,8 +16,14 @@ public class HealthBarUI : NetworkBehaviour
         _slider = GetComponent<Slider>();
         _fillAmount.Value = _slider.value;
         _fillAmount.OnChange += OnHealthChanged;
+        EnableHealthBar();
     }
-    
+
+    [ServerRpc(RequireOwnership = true)]
+    private void EnableHealthBar()
+    {
+        _slider.gameObject.SetActive(true);
+    }
     private void OnHealthChanged(float prev, float next, bool asServer)
     {
         _fillAmount.Value = next;
