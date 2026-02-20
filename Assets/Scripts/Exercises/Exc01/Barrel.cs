@@ -6,7 +6,7 @@ public class Barrel : NetworkBehaviour
     [SerializeField] private NetworkObject _cubePrefab;
     
     
-    private void Explode()
+    public void Explode()
     {
         NetworkObject obj = Instantiate(_cubePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         
