@@ -55,7 +55,6 @@ public class HealthComponent : NetworkBehaviour
 
     private void OnHealthChanged(int prev, int next, bool asServer)
     {
-        Health.Value = next;
         _slider.value = HealthPercentage;
         ReceiveHit();
     }
