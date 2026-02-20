@@ -5,7 +5,7 @@ public class Barrel : NetworkBehaviour
 {
     [SerializeField] private NetworkObject _cubePrefab;
     
-    
+    [ServerRpc(RequireOwnership = false)]
     public void Explode()
     {
         NetworkObject obj = Instantiate(_cubePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
@@ -18,6 +18,5 @@ public class Barrel : NetworkBehaviour
         Spawn(obj, Owner);
         Despawn();
     }
-    
     
 }
