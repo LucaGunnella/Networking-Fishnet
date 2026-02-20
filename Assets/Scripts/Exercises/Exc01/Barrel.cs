@@ -16,7 +16,7 @@ public class Barrel : NetworkBehaviour
         }
         
         Spawn(obj, Owner);
-        Destroy(gameObject);
+        Despawn();
     }
     
     
