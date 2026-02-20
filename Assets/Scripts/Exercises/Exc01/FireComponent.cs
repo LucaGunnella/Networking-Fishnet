@@ -33,8 +33,9 @@ public class FireComponent : NetworkBehaviour
         if (Physics.Raycast(ray, out var hit))
         {
             Debug.Log(hit.transform.name);
-            _barrel = hit.transform.GetComponent<Barrel>();
-            _barrel.OnHit();
+            _barrel = hit.transform.TryGetComponent<Barrel>(out var barrel) ? barrel : null;
+            if (barrel != null) 
+                _barrel.OnHit();
             
             if (hit.transform.TryGetComponent(out HealthComponent health))
             {
