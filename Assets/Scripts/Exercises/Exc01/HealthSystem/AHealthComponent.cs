@@ -9,7 +9,7 @@ public class AHealthComponent : NetworkBehaviour
     
     public readonly SyncVar<int> Health = new();
     
-    private void Awake()
+    protected virtual void Awake()
     {
         Health.Value = _maxHealth;
         
@@ -22,7 +22,7 @@ public class AHealthComponent : NetworkBehaviour
         Health.Value -= amount;
     }
     
-    private void OnHealthChanged(int prev, int next, bool asServer)
+    protected virtual void OnHealthChanged(int prev, int next, bool asServer)
     {
         Health.Value = next;
     }
