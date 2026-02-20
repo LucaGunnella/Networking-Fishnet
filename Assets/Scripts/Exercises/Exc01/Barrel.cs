@@ -3,5 +3,21 @@ using FishNet.Object;
 
 public class Barrel : NetworkBehaviour
 {
-     // Add your code
+    [SerializeField] private NetworkObject _cubePrefab;
+    
+    
+    private void Explode()
+    {
+        NetworkObject obj = Instantiate(_cubePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        
+        if(obj.TryGetComponent<SyncMaterialColor>(out var syncMaterialColor)) // lesson 02
+        {
+            syncMaterialColor.color.Value = Random.ColorHSV();
+        }
+        
+        Spawn(obj, Owner);
+        Destroy(gameObject);
+    }
+    
+    
 }
