@@ -37,6 +37,7 @@ public class FireComponent : NetworkBehaviour
             {
                 health.TakeDamage(5);
             }
+            
         }
     }
 }
